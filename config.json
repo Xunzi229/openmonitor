@@ -1,0 +1,1302 @@
+{
+  "interval_seconds": 60,
+  "shop_update_interval_minutes": 20,
+  "shops_per_batch": 10,
+  "shop_fetch_delay_min_sec": 2,
+  "shop_fetch_delay_max_sec": 3,
+  "page_size": 100,
+  "push_schedule": {
+    "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "time_ranges": [
+      {
+        "start": "09:30",
+        "end": "14:00"
+      }
+    ]
+  },
+  "monitor_keywords": [
+    "gpt",
+    "chatgpt"
+  ],
+  "categories": [
+    {
+      "name": "免费号",
+      "keywords": [
+        "free",
+        "免费",
+        "白嫖"
+      ],
+      "top_n": 5,
+      "enabled": true,
+      "push": false,
+      "max_push_price": 12,
+      "description": "实际售卖免费/白嫖的 ChatGPT 账号本身；接码、邮箱等辅助服务不算。"
+    },
+    {
+      "name": "Plus号",
+      "keywords": [
+        "plus",
+        "plus号",
+        "plus帐",
+        "plus账"
+      ],
+      "top_n": 5,
+      "enabled": true,
+      "max_push_price": 20,
+      "description": "实际售卖 ChatGPT Plus 官方会员账号/订阅/席位本身（如成品号、独享月卡、质保首登会员）。以下绝不是 Plus号：接码/验证码/邮箱/绑定工具；中转站、镜像站、API 中转；标题含「xx刀/20刀/plus20刀」等额度或中转套餐（如「plus20刀不限时」）；CDK、卡头、次卡、直卡、支付链接、虚拟卡、「开通plus必备」等支付开通工具。"
+    },
+    {
+      "name": "Team号",
+      "keywords": [
+        "team",
+        "团队"
+      ],
+      "top_n": 5,
+      "enabled": true,
+      "push": false,
+      "max_push_price": 20,
+      "description": "实际售卖 ChatGPT Team 账号或团队席位本身；接码/邮箱/中转站/镜像站/xx刀额度等不算。"
+    },
+    {
+      "name": "Pro号",
+      "keywords": [
+        "pro"
+      ],
+      "top_n": 5,
+      "enabled": false,
+      "push": false,
+      "description": "实际售卖 ChatGPT Pro 账号或订阅本身；接码/邮箱/中转站/镜像站/xx刀额度等不算。"
+    },
+    {
+      "name": "其他GPT",
+      "keywords": [],
+      "top_n": 5,
+      "enabled": true,
+      "fallback": true,
+      "push": false,
+      "max_push_price": 12,
+      "description": "不属于以上任一精准分类的 GPT 相关商品，包括接码、邮箱、绑定工具、中转站、镜像站、xx刀额度套餐、杂项服务等。"
+    },
+    {
+      "name": "UPI",
+      "keywords": [
+        "upi"
+      ],
+      "top_n": 5,
+      "enabled": true,
+      "push": false,
+      "max_push_price": 20,
+      "description": "实际与 UPI 支付或开通相关的商品。"
+    },
+    {
+      "name": "重置",
+      "keywords": [
+        "重置"
+      ],
+      "top_n": 5,
+      "enabled": true,
+      "push": false,
+      "max_push_price": 20,
+      "description": "实际是账号重置类服务。"
+    }
+  ],
+  "alert_rules": {
+    "push_on_price_drop": true,
+    "push_on_top10_new_entry": true
+  },
+  "shops": [
+    {
+      "token": "0error",
+      "name": "0error的小店"
+    },
+    {
+      "token": "2425",
+      "name": "2425的小店"
+    },
+    {
+      "token": "5W34SF00",
+      "name": "259企业AI的小店"
+    },
+    {
+      "token": "282D9KDL",
+      "name": "282D9KDL（GPT Plus/Pro/成品号）"
+    },
+    {
+      "token": "7HVUEC3Y",
+      "name": "464的小店"
+    },
+    {
+      "token": "6TKPIT5E",
+      "name": "7878的小店"
+    },
+    {
+      "token": "M67EGQ4V",
+      "name": "987xyz的小店"
+    },
+    {
+      "token": "VCSS5TUW",
+      "name": "AAAAAAAI的小店"
+    },
+    {
+      "token": "J3FIDOJO",
+      "name": "ai 会员小店的小店"
+    },
+    {
+      "token": "GTQ",
+      "name": "Ai 光头强的小店"
+    },
+    {
+      "token": "YQUOBIW1",
+      "name": "AI 源头厂家的小店"
+    },
+    {
+      "token": "aishop",
+      "name": "aishop（GPT/Gemini）"
+    },
+    {
+      "token": "aistore",
+      "name": "aistore（GPT/Claude/Gemini 会员）"
+    },
+    {
+      "token": "grok",
+      "name": "AI万能工具箱的小店"
+    },
+    {
+      "token": "O3N30X89",
+      "name": "AI会员的小店的小店"
+    },
+    {
+      "token": "xiaoba",
+      "name": "Ai小八的小店"
+    },
+    {
+      "token": "yoyohub",
+      "name": "AI小卖部的小店"
+    },
+    {
+      "token": "84FRGTKZ",
+      "name": "ai小店的小店"
+    },
+    {
+      "token": "echo_dream",
+      "name": "AI小铺的小店"
+    },
+    {
+      "token": "WPXSCE1B",
+      "name": "Ai小铺的小店"
+    },
+    {
+      "token": "W2WA61DN",
+      "name": "AI小铺的小店"
+    },
+    {
+      "token": "oak",
+      "name": "AI源头-oak的小店"
+    },
+    {
+      "token": "8XBEFW66",
+      "name": "ai源头plus的小店"
+    },
+    {
+      "token": "SubAIP",
+      "name": "AI源头批发旗舰店的小店"
+    },
+    {
+      "token": "1CMPMUXM",
+      "name": "AI源头的小店"
+    },
+    {
+      "token": "htl",
+      "name": "ai灰太狼的小店"
+    },
+    {
+      "token": "ai-store",
+      "name": "AI超市的小店"
+    },
+    {
+      "token": "B7WC7Q6F",
+      "name": "B7WC7Q6F（Gemini 卡密）"
+    },
+    {
+      "token": "9T40GAS6",
+      "name": "babu的小店"
+    },
+    {
+      "token": "YFZZYN8N",
+      "name": "BestYuan的小店"
+    },
+    {
+      "token": "YP48FZ43",
+      "name": "codex产品的小店"
+    },
+    {
+      "token": "cohorsAI",
+      "name": "CohorsAI的小店"
+    },
+    {
+      "token": "EK7VIFEG",
+      "name": "Eason的小店"
+    },
+    {
+      "token": "ONJ5DYXX",
+      "name": "easy-ai的小店"
+    },
+    {
+      "token": "X6H4JRXW",
+      "name": "fan272的小店"
+    },
+    {
+      "token": "gaccode",
+      "name": "gaccode（Gemini CDK 等）"
+    },
+    {
+      "token": "ganai",
+      "name": "GanAI小铺的小店"
+    },
+    {
+      "token": "pixelshop",
+      "name": "Gemini源头供货商的小店"
+    },
+    {
+      "token": "FV0SO242",
+      "name": "ggpptt的小店"
+    },
+    {
+      "token": "OG8Y4FKO",
+      "name": "gpt plus 源头的小店"
+    },
+    {
+      "token": "I2XZHSEA",
+      "name": "gpt pro中转的小店"
+    },
+    {
+      "token": "GPT9999",
+      "name": "GPT9999（GPT Plus/Pro 多倍率）"
+    },
+    {
+      "token": "xiamai",
+      "name": "gpt_plus_批发的小店"
+    },
+    {
+      "token": "74BNTMAU",
+      "name": "GPTPLUS的小店"
+    },
+    {
+      "token": "FIFFGN4F",
+      "name": "GPT专享售卖的小店"
+    },
+    {
+      "token": "UMK5K588",
+      "name": "GPT专营的小店"
+    },
+    {
+      "token": "JFWHT64I",
+      "name": "GPT的小店"
+    },
+    {
+      "token": "AB7F82VQ",
+      "name": "HG的小店"
+    },
+    {
+      "token": "4UOATQTU",
+      "name": "Hug AI的小店"
+    },
+    {
+      "token": "iceaix",
+      "name": "Ice Ai X的小店"
+    },
+    {
+      "token": "jieyou92",
+      "name": "Jieyou AI的小店"
+    },
+    {
+      "token": "59FSBGJN",
+      "name": "kaka AI的小店"
+    },
+    {
+      "token": "KQ73NYO7",
+      "name": "KQ73NYO7（AI 账号资源）"
+    },
+    {
+      "token": "lanyy",
+      "name": "lanyy（接码 + AI 服务）"
+    },
+    {
+      "token": "Hui-AI666",
+      "name": "Leo的AI小卖铺的小店"
+    },
+    {
+      "token": "ainx",
+      "name": "LLM_Family的小店"
+    },
+    {
+      "token": "Mintapi",
+      "name": "Mint API的小店"
+    },
+    {
+      "token": "7A4829UY",
+      "name": "Moon的小店"
+    },
+    {
+      "token": "parhom",
+      "name": "parhom（GPT 号）"
+    },
+    {
+      "token": "FNAOIGBK",
+      "name": "PLUS直营店的小店"
+    },
+    {
+      "token": "rexmoo.ai",
+      "name": "Rexmoo AI小店的小店"
+    },
+    {
+      "token": "rick",
+      "name": "Rick的AI小铺的小店"
+    },
+    {
+      "token": "RSIAY6WR",
+      "name": "RSIAY6WR（无限 Token）"
+    },
+    {
+      "token": "FPG7WKL2",
+      "name": "smallbanana的小店"
+    },
+    {
+      "token": "ZQXOSYAD",
+      "name": "Smart Tech Home / 科技智享家（ChatGPT/Claude/Gemini 充值）"
+    },
+    {
+      "token": "superman",
+      "name": "superman（MCP/赞助相关，AI 工具）"
+    },
+    {
+      "token": "haifs",
+      "name": "TG-海飞丝 GPT土区plus源头价格直供的小店"
+    },
+    {
+      "token": "wckj",
+      "name": "wckj（Cursor PRO 平替）"
+    },
+    {
+      "token": "SQBAF2T3",
+      "name": "windsurf210刀源头的小店"
+    },
+    {
+      "token": "WOXP888",
+      "name": "WOXP888（Gemini / Team 席位）"
+    },
+    {
+      "token": "XRE84N7M",
+      "name": "XRE84N7M（Google/GPT 相关）"
+    },
+    {
+      "token": "yuaotian",
+      "name": "yuaotian（Cursor / GPT 周卡等）"
+    },
+    {
+      "token": "BP7NFXYT",
+      "name": "Yuuu的ChatGpt的小店"
+    },
+    {
+      "token": "99UV2HM5",
+      "name": "不眠不休的小店"
+    },
+    {
+      "token": "WURK0XWX",
+      "name": "个性个性AI小店的小店"
+    },
+    {
+      "token": "GT7KX1TN",
+      "name": "光之国AI的小店"
+    },
+    {
+      "token": "zhubj",
+      "name": "八戒小土豆的小店"
+    },
+    {
+      "token": "UQE4G5JR",
+      "name": "北风的小店"
+    },
+    {
+      "token": "1AESI47M",
+      "name": "吴大哥的小店"
+    },
+    {
+      "token": "L0K5A26F",
+      "name": "呆呆GPT的小店"
+    },
+    {
+      "token": "22DHYNNV",
+      "name": "哈哈的ai杂货铺的小店"
+    },
+    {
+      "token": "61KF391I",
+      "name": "商家1308的小店"
+    },
+    {
+      "token": "HIRM9HZZ",
+      "name": "商家4512的小店"
+    },
+    {
+      "token": "5VAWZDGD",
+      "name": "商家4746的小店"
+    },
+    {
+      "token": "GuoWangovo",
+      "name": "商家5905的小店"
+    },
+    {
+      "token": "J5CA6VJZ",
+      "name": "商家6837的小店"
+    },
+    {
+      "token": "Kegan04",
+      "name": "商家696的小店"
+    },
+    {
+      "token": "47P8PKPP",
+      "name": "商家7349的小店"
+    },
+    {
+      "token": "AY1FXLQX",
+      "name": "商家8190的小店"
+    },
+    {
+      "token": "KHRR17MS",
+      "name": "商家9152的小店"
+    },
+    {
+      "token": "codex8",
+      "name": "喃云小店的小店"
+    },
+    {
+      "token": "P5034CNR",
+      "name": "四米名字的小店"
+    },
+    {
+      "token": "1VGV7A8U",
+      "name": "垃圾佬站点的小店"
+    },
+    {
+      "token": "V38JA2MD",
+      "name": "大卖场的小店"
+    },
+    {
+      "token": "ED9POSCY",
+      "name": "天天开心的小店"
+    },
+    {
+      "token": "txai",
+      "name": "天选AI的小店"
+    },
+    {
+      "token": "1E5DST9P",
+      "name": "奥特曼直营店的小店"
+    },
+    {
+      "token": "J0Q89LSE",
+      "name": "奥特曼直营店的小店"
+    },
+    {
+      "token": "SEBYSZ6G",
+      "name": "娅姿AI的小店"
+    },
+    {
+      "token": "VUOJQOHY",
+      "name": "小久的小店"
+    },
+    {
+      "token": "1D0LD6BR",
+      "name": "小猫GPT源头的小店"
+    },
+    {
+      "token": "dialogue",
+      "name": "小白Code的小店"
+    },
+    {
+      "token": "HCJW0TDL",
+      "name": "小票的ai小铺的小店"
+    },
+    {
+      "token": "AWXK3UJY",
+      "name": "彩虹马的AI店的小店"
+    },
+    {
+      "token": "MRBUOCI4",
+      "name": "新探联动的小店"
+    },
+    {
+      "token": "wohoo",
+      "name": "校长的小店"
+    },
+    {
+      "token": "YE9N6WYK",
+      "name": "江南_AI商铺的小店"
+    },
+    {
+      "token": "XWYIE6VL",
+      "name": "洒脱AI源头站的小店"
+    },
+    {
+      "token": "339",
+      "name": "派大星的蟹黄堡的小店"
+    },
+    {
+      "token": "3CCG4B0K",
+      "name": "海外正规代充的小店"
+    },
+    {
+      "token": "1DM0L7CR",
+      "name": "源头GPT的小店"
+    },
+    {
+      "token": "WYDOV9YM",
+      "name": "源头手搓GPT的小店"
+    },
+    {
+      "token": "qq987G",
+      "name": "煎饼果子Oliver的小店"
+    },
+    {
+      "token": "7KJU4N9A",
+      "name": "牛店的小店"
+    },
+    {
+      "token": "IK7OYLXZ",
+      "name": "猫猫豆的小店"
+    },
+    {
+      "token": "wanghaha",
+      "name": "王哈哈Ai（招实力代理）的小店"
+    },
+    {
+      "token": "6YHGJOPN",
+      "name": "码愿AI部署的小店"
+    },
+    {
+      "token": "qiudaoyu777",
+      "name": "秋刀鱼精品小铺的小店"
+    },
+    {
+      "token": "geiliapi",
+      "name": "给力啊 API的小店"
+    },
+    {
+      "token": "ruozhen",
+      "name": "若真小店的小店"
+    },
+    {
+      "token": "2G4J2E1U",
+      "name": "范小勤搞AI的小店"
+    },
+    {
+      "token": "FireSpark",
+      "name": "萤火AI的小店"
+    },
+    {
+      "token": "BVK9S0NZ",
+      "name": "衡域的小店"
+    },
+    {
+      "token": "911",
+      "name": "金幺の小店的小店"
+    },
+    {
+      "token": "84564786",
+      "name": "阿旺AI的小店"
+    },
+    {
+      "token": "P9HPIPWA",
+      "name": "青熵的小店"
+    },
+    {
+      "token": "qingwaAA",
+      "name": "青蛙AI·低价源头的小店"
+    },
+    {
+      "token": "HLT0XHF9",
+      "name": "静态IP的小店"
+    },
+    {
+      "token": "1I2Y9GEC",
+      "name": "靠谱 AI的小店"
+    },
+    {
+      "token": "gpticu",
+      "name": "顾惜月的小店"
+    },
+    {
+      "token": "shayulajiao",
+      "name": "鲨鱼辣椒"
+    },
+    {
+      "token": "V2M14U73",
+      "name": "鲸鲨的AI智充小铺的小店"
+    },
+    {
+      "token": "ai-store",
+      "name": "AI 超市",
+      "platform": "catfk"
+    },
+    {
+      "token": "7M1A0DFN",
+      "name": "AI乐园",
+      "platform": "catfk"
+    },
+    {
+      "token": "Y6EJ9B12",
+      "name": "gpt plus",
+      "platform": "catfk"
+    },
+    {
+      "token": "18Y8G3PT",
+      "name": "GPT PLUS ser",
+      "platform": "catfk"
+    },
+    {
+      "token": "MintAPI",
+      "name": "MintAPI",
+      "platform": "catfk"
+    },
+    {
+      "token": "rick",
+      "name": "Rick的AI小铺 - GPT成品号/日抛号",
+      "platform": "catfk"
+    },
+    {
+      "token": "sanguine",
+      "name": "sanguine",
+      "platform": "catfk"
+    },
+    {
+      "token": "3HOZ2C4C",
+      "name": "商家0176",
+      "platform": "catfk"
+    },
+    {
+      "token": "657X9RZT",
+      "name": "坏小子",
+      "platform": "catfk"
+    },
+    {
+      "token": "aoteman",
+      "name": "奥特曼直营店",
+      "platform": "catfk"
+    },
+    {
+      "token": "ZBY666",
+      "name": "张伯懿的小铺",
+      "platform": "catfk"
+    },
+    {
+      "token": "YY4KVE2T",
+      "name": "商家5291",
+      "platform": "ldxp"
+    },
+    {
+      "token": "33X1D2BV",
+      "name": "呱呱AI的店铺",
+      "platform": "ldxp"
+    },
+    {
+      "token": "doge",
+      "name": "柴犬AI",
+      "platform": "ldxp"
+    },
+    {
+      "token": "ChatShare",
+      "name": "ChatShare",
+      "platform": "ldxp"
+    },
+    {
+      "token": "agi",
+      "name": "AGI（AI源头批发中心）",
+      "platform": "catfk"
+    },
+    {
+      "token": "ithte",
+      "name": "黑鹅小铺",
+      "platform": "catfk"
+    },
+    {
+      "token": "I7DPO2IK",
+      "name": "风里的AI小铺",
+      "platform": "catfk"
+    },
+    {
+      "token": "4WXNQBCP",
+      "name": "商家886",
+      "platform": "catfk"
+    },
+    {
+      "token": "G062JE24",
+      "name": "各类低价对接汇总"
+    },
+    {
+      "token": "6RSH0LA6",
+      "name": "东北23333--承接理工科毕设"
+    },
+    {
+      "token": "EXZMM8SQ",
+      "name": "team最后的余晖"
+    },
+    {
+      "token": "YGOV1U2Q",
+      "name": "虚拟产品批发"
+    },
+    {
+      "token": "2VWX76A4",
+      "name": "牟利ai"
+    },
+    {
+      "token": "YA34KKG7",
+      "name": "AI批发的杂货店"
+    },
+    {
+      "token": "GUEOI7Z9",
+      "name": "鹰鹰小铺"
+    },
+    {
+      "token": "ymymai",
+      "name": "亚米的整合服务供应商"
+    },
+    {
+      "token": "zxc",
+      "name": "自行车 Ai 店铺"
+    },
+    {
+      "token": "mengze",
+      "name": "梦泽"
+    },
+    {
+      "token": "AEUQ8PP3",
+      "name": "ai教父"
+    },
+    {
+      "token": "aishop86",
+      "name": "AI小店"
+    },
+    {
+      "token": "JL7007",
+      "name": "沈万三的Ai聚宝盆"
+    },
+    {
+      "token": "IRPBFS50",
+      "name": "玩去了的AI提效工具店"
+    },
+    {
+      "token": "SB9T68JP",
+      "name": "AI账号乐园"
+    },
+    {
+      "token": "GV0HQ2C0",
+      "name": "YaHo🐯全网低价渠道"
+    },
+    {
+      "token": "yuanAi",
+      "name": "元Ai"
+    },
+    {
+      "token": "BOP1WKBD",
+      "name": "52XUEAI"
+    },
+    {
+      "token": "sato",
+      "name": "Ai云"
+    },
+    {
+      "token": "aica",
+      "name": "【AI源头直供】AICA"
+    },
+    {
+      "token": "cjms",
+      "name": "超级码少"
+    },
+    {
+      "token": "Tora",
+      "name": "Tora-雪诺AI源头分销小铺"
+    },
+    {
+      "token": "cao",
+      "name": "CAO"
+    },
+    {
+      "token": "DF6CKF46",
+      "name": "SHEN"
+    },
+    {
+      "token": "aishop1",
+      "name": "稳问AI  --AI 大玩家（AI真源头，招代理）"
+    },
+    {
+      "token": "6YEJH8PE",
+      "name": "gpt成品"
+    },
+    {
+      "token": "qihangai",
+      "name": "启航AI"
+    },
+    {
+      "token": "Antipro",
+      "name": "Antipro（请看店铺公告）",
+      "platform": "catfk"
+    },
+    {
+      "token": "yes",
+      "name": "如鱼得水(玩转ai)"
+    },
+    {
+      "token": "JXTW1SWE",
+      "name": "快到碗里来",
+      "platform": "catfk"
+    },
+    {
+      "token": "gogo",
+      "name": "AI gogo渠道 （招代理）"
+    },
+    {
+      "token": "aiplus666",
+      "name": "AI源头旗舰批发店"
+    },
+    {
+      "token": "gpt_plus",
+      "name": "aihome"
+    },
+    {
+      "token": "niuniushop",
+      "name": "牛牛ai专卖店"
+    },
+    {
+      "token": "5NVWW2PJ",
+      "name": "元元低价ai店"
+    },
+    {
+      "token": "2W1EEK4J",
+      "name": "AI主理人"
+    },
+    {
+      "token": "52AI",
+      "name": "52AI店铺"
+    },
+    {
+      "token": "one",
+      "name": "云边小铺（招代理）"
+    },
+    {
+      "token": "BV3T3VHN",
+      "name": "汇聚AI",
+      "platform": "catfk"
+    },
+    {
+      "token": "allcodex",
+      "name": "赫默斯"
+    },
+    {
+      "token": "ZM24RG4J",
+      "name": "【伊莉雅】Gemini gpt grok"
+    },
+    {
+      "token": "chatgpt.com",
+      "name": "GPT源头（招代理）"
+    },
+    {
+      "token": "F15TJMHJ",
+      "name": "科技大王"
+    },
+    {
+      "token": "4YWWAAFM",
+      "name": "蜗的AI(招代理)"
+    },
+    {
+      "token": "XiaoYie",
+      "name": "小野的AI会员店"
+    },
+    {
+      "token": "cloudborne",
+      "name": "栖云Cloudborne"
+    },
+    {
+      "token": "2E2KPQD1",
+      "name": "AI杂货"
+    },
+    {
+      "token": "kaka",
+      "name": "卡卡丨货源"
+    },
+    {
+      "token": "subaicc",
+      "name": "Fkai-Plus Pro源头直供【招代理】"
+    },
+    {
+      "token": "VFXM37XJ",
+      "name": "Furry黑历"
+    },
+    {
+      "token": "LD52LLPD",
+      "name": "YYYYD"
+    },
+    {
+      "token": "0000",
+      "name": "AI 海外账号",
+      "platform": "catfk"
+    },
+    {
+      "token": "2POVTUTK",
+      "name": "王哥源头"
+    },
+    {
+      "token": "ikun666",
+      "name": "iKun AI源头小铺"
+    },
+    {
+      "token": "chatgpt_ai",
+      "name": "AI小铺（源头直供，招代理）"
+    },
+    {
+      "token": "rgzn",
+      "name": "AI小屋"
+    },
+    {
+      "token": "ycjq",
+      "name": "悠长假期"
+    },
+    {
+      "token": "KH1QIMLL",
+      "name": "plus gao"
+    },
+    {
+      "token": "GAXW96YR",
+      "name": "LynnZee"
+    },
+    {
+      "token": "YTR60TGVK",
+      "name": "Ai小熊"
+    },
+    {
+      "token": "0000",
+      "name": "AI海外账号"
+    },
+    {
+      "token": "FY352JMO",
+      "name": "Codex小铺"
+    },
+    {
+      "token": "66666SMS",
+      "name": "SMS-AIShop"
+    },
+    {
+      "token": "ycyapi",
+      "name": "YCYAPI"
+    },
+    {
+      "token": "YBLR083Q",
+      "name": "穹"
+    },
+    {
+      "token": "OOVJUWKF",
+      "name": "萃选 AI",
+      "platform": "catfk"
+    },
+    {
+      "token": "MAOSHUAI",
+      "name": "AI不跑路我最屌"
+    },
+    {
+      "token": "ai.shop",
+      "name": "AI开发商"
+    },
+    {
+      "token": "QLL06630",
+      "name": "Ai小店1150"
+    },
+    {
+      "token": "OCBP9CJZ",
+      "name": "清羽688"
+    },
+    {
+      "token": "AI_Chrome_Hearts",
+      "name": "AI_Chrome_Hearts"
+    },
+    {
+      "token": "4S4JKIOC",
+      "name": "数海掘金"
+    },
+    {
+      "token": "N3BQ0GOI",
+      "name": "huihuiaoao"
+    },
+    {
+      "token": "AI9K9WWM",
+      "name": "咖啡猫AI·低价源头"
+    },
+    {
+      "token": "NWIPLK8X",
+      "name": "李页的小店"
+    },
+    {
+      "token": "C7MLWX4N",
+      "name": "mortyAI小铺"
+    },
+    {
+      "token": "G5JKZ1Z4",
+      "name": "AI小铺铺",
+      "platform": "catfk"
+    },
+    {
+      "token": "D92VW084",
+      "name": "咔咔"
+    },
+    {
+      "token": "chaoji",
+      "name": "炒鸡变黑的AI店（CDK 代充 PRO，Plus龟头卷价版）"
+    },
+    {
+      "token": "9P102ZA3",
+      "name": "ali.shop"
+    },
+    {
+      "token": "AG7CVCOD",
+      "name": "喵喵AI小铺2061"
+    },
+    {
+      "token": "F06LXGPS",
+      "name": "aikami"
+    },
+    {
+      "token": "TBCAH4G1",
+      "name": "GPT源头商家"
+    },
+    {
+      "token": "J6F0Z1MF",
+      "name": "恶小梦"
+    },
+    {
+      "token": "LSKE5MWX",
+      "name": "gpt free旗舰店"
+    },
+    {
+      "token": "V3TX7692",
+      "name": "cding"
+    },
+    {
+      "token": "OWKA0N6F",
+      "name": "AI小铺"
+    },
+    {
+      "token": "aibeibei",
+      "name": "AI贝贝"
+    },
+    {
+      "token": "gpt999",
+      "name": "低价AI渠道"
+    },
+    {
+      "token": "DJFT26BF",
+      "name": "映核资源站"
+    },
+    {
+      "token": "MF950ZRS",
+      "name": "花生AI"
+    },
+    {
+      "token": "UW94LBON",
+      "name": "yemao-ai源头"
+    },
+    {
+      "token": "MYIAKTYT",
+      "name": "自助开通PLUS"
+    },
+    {
+      "token": "aibeibei",
+      "name": "AI贝贝",
+      "platform": "catfk"
+    },
+    {
+      "token": "qingqing",
+      "name": "青卿"
+    },
+    {
+      "token": "WR09NYJN",
+      "name": "奇怪"
+    },
+    {
+      "token": "Aiteam",
+      "name": "Ai家族（不推荐·不售卖工具）"
+    },
+    {
+      "token": "1490777",
+      "name": "7QAI批发市场"
+    },
+    {
+      "token": "hei",
+      "name": "黑哥们手搓奥特曼AI"
+    },
+    {
+      "token": "cccard",
+      "name": "CC卡网"
+    },
+    {
+      "token": "xiaoman",
+      "name": "小满 AI 小铺"
+    },
+    {
+      "token": "AZX4SPJ0",
+      "name": "Gemini批发"
+    },
+    {
+      "token": "666666",
+      "name": "aihome",
+      "platform": "catfk"
+    },
+    {
+      "token": "H2QPI3X2",
+      "name": "灵AI"
+    },
+    {
+      "token": "7TCL10MR",
+      "name": "卖点AI"
+    },
+    {
+      "token": "X273D51R",
+      "name": "南乔ai"
+    },
+    {
+      "token": "ton",
+      "name": "ton"
+    },
+    {
+      "token": "YIXOQD2E",
+      "name": "AI小铺",
+      "platform": "catfk"
+    },
+    {
+      "token": "COQNA6PX",
+      "name": "TOPSTAR"
+    },
+    {
+      "token": "A3H9BD10",
+      "name": "老中医X"
+    },
+    {
+      "token": "huahua",
+      "name": "花花"
+    },
+    {
+      "token": "NUX4KNC4",
+      "name": "gpt-gemini会员稳定低价"
+    },
+    {
+      "token": "qy699",
+      "name": "清羽699"
+    },
+    {
+      "token": "rimon",
+      "name": "飞龙AI 小铺"
+    },
+    {
+      "token": "TQCT6KDW",
+      "name": "卖点小东西",
+      "platform": "catfk"
+    },
+    {
+      "token": "TSW7DIEI",
+      "name": "ai主理人"
+    },
+    {
+      "token": "WX87SRB2",
+      "name": "Plus小店"
+    },
+    {
+      "token": "W89ITLDC",
+      "name": "AI大卖家"
+    },
+    {
+      "token": "TSNISSR7",
+      "name": "Hunter_pp",
+      "platform": "catfk"
+    },
+    {
+      "token": "qy688",
+      "name": "🔥清羽688 🔥Codex接码🔥Gpt成品号🔥招代理🔥对接码qy688",
+      "platform": "catfk"
+    },
+    {
+      "token": "SQ5C82YG",
+      "name": "邻家数字铺"
+    },
+    {
+      "token": "grokheavy",
+      "name": "AI For Everyone"
+    },
+    {
+      "token": "4AOII9BU",
+      "name": "商家3038"
+    },
+    {
+      "token": "YQWTL8AS",
+      "name": "凌空ai"
+    },
+    {
+      "token": "L9P7JDGN",
+      "name": "sekirocloud"
+    },
+    {
+      "token": "ZKVLK6KL",
+      "name": "全网低价GPT Team账号"
+    },
+    {
+      "token": "P37BQYH2",
+      "name": "叶子🍃小铺"
+    },
+    {
+      "token": "YXCTJAH4",
+      "name": "蒲美丽のAI副食店"
+    },
+    {
+      "token": "PVV49DJK",
+      "name": "商家5332"
+    },
+    {
+      "token": "gpt5.5",
+      "name": "AI华强北"
+    },
+    {
+      "token": "D1FUVQNL",
+      "name": "AI贝贝",
+      "platform": "catfk"
+    },
+    {
+      "token": "MOWWXPY7",
+      "name": "ai的小宝贝",
+      "platform": "catfk"
+    },
+    {
+      "token": "89LBYJ36",
+      "name": "ai资源库"
+    },
+    {
+      "token": "jingxuan",
+      "name": "精选好货AI"
+    },
+    {
+      "token": "7CSXG2QQ",
+      "name": "axzsd店"
+    },
+    {
+      "token": "D0NYICE1",
+      "name": "能混为什么要输出"
+    }
+  ],
+  "cardnav_enabled": true,
+  "cardnav_poll_interval_minutes": 10,
+  "max_push_price": 20,
+  "pool_item_stale_hours": 2,
+  "min_push_price": 0.5,
+  "fetch_outside_push_schedule": true
+}

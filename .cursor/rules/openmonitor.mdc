@@ -1,0 +1,103 @@
+---
+description: GPT 价格监控项目的推送与告警规则
+globs: monitor.py,config.json
+alwaysApply: false
+---
+
+# OpenMonitor 规则
+
+## 推送渠道
+- **飞书 Open API**（推荐，支持撤回）：配置 `feishu_app_id` / `feishu_app_secret` / `feishu_chat_id`
+- **飞书 Webhook**：`feishu_webhook_url`（无法撤回，无 message_id）
+- `qiwei_webhook_url`：企业微信 markdown_v2（支持表格，见[消息推送文档](https://developer.work.weixin.qq.com/document/path/99110)）
+- 配置哪个发哪个；飞书优先 Open API
+
+## 飞书消息策略
+- 每天监控时段内**第一次推送**：各类 TopN **全量**表格
+- 同日后续推送：仅 **降价 / 新进Top10** 变动卡片
+- Open API 发送时记录 `message_id` 到 `data/feishu_messages.json`
+- **次日**自动调用[撤回消息](https://open.feishu.cn/document/server-docs/im-v1/message/delete)接口，逐条撤回前一日消息
+- 每条消息必须是完整组装的 markdown，禁止截断表格中间发送
+
+## 大类与关键词（`categories`）
+- 每类可配置 `keywords`、`top_n`、`enabled`；纯英文词（如 `free`/`plus`）自动加 `\b` 边界
+- `monitor_keywords`：商品名/分类须匹配才进入监控（默认 gpt/chatgpt）
+- `fallback: true` 的类为兜底分类（默认「其他GPT」）
+- 归类策略（省模型）：硬规则（接码/中转/xx刀等）与**唯一关键词命中**直接出结果；无命中或多类冲突才调 `classify_llm`；同 SKU/同标题缓存复用（含 keyword，不再强制翻成 llm）
+- `prices.json` / `top10.json` 记录 `classify_source`（keyword/llm）、`classify_detail`（rule_high/rule_low/llm/sku_cache/name_cache）、`classify_label`（中文说明）
+- **缺货**（接口仍返回且 stock≤0）：保留在 `prices.json`，不入 TopN、不推送；**接口不再返回**的 SKU 视为不存在并删除；**配置中已无该店铺**时删除其全部商品池数据
+
+## TopN 监控池
+- 每类按 `top_n` 维护**当前有库存**商品中**绝对价格最低**的 SKU 池，持久化在 `data/top10.json`
+- 每轮从 `prices.json` 全量重算：只按现价排序取前 N，**涨价不影响入池**，仅当相对其它商品不够便宜时才出池
+- 抓取店铺时分页拉全量商品；**同店分页间隔与店间相同**（`shop_fetch_delay_min_sec` ~ `shop_fetch_delay_max_sec`）
+
+## 展示规则
+- 发送内容永远是各分类当前 Top10 池内商品
+- 表格表头固定：`商品 | 渠道商店 | 价格 | 价格浮动`
+- 商品名称可点击跳转商品下单页；渠道商店可点击跳转店铺页
+- 变动提醒表格：`变动 | 分类 | 商品 | 渠道商店 | 价格 | 价格浮动`
+
+## 接口限速
+- 所有外部 HTTP 请求（店铺 API、飞书 webhook）间隔至少 **1.5 秒**，禁止连续调用
+- 店铺**滚动分批更新**：每 `interval_seconds`（默认 60 秒）更新一批，每批最多 `shops_per_batch`（默认 10）家
+- 同批内每家店铺间隔 `shop_fetch_delay_min_sec` ~ `shop_fetch_delay_max_sec`（默认 2~3 秒）
+- 同一店铺 `shop_update_interval_minutes`（默认 20 分钟）内不重复更新，优先更新最久未更新的店
+
+## 配置热更新
+- `config.json` 修改后下一轮自动生效，无需重启进程
+- `config.json` 仅放人工配置；店铺运行状态在 `data/shops_state.json`
+
+## 店铺配置维护
+- `config.json` 的 `shops` 仅含 token/name/platform
+- `data/shops_state.json` 存 `status`、`last_updated_at`、`last_error`
+- 未到 `shop_update_interval_minutes` 则跳过，沿用 `prices.json` 旧价
+- `status: disabled` 暂停该店；`error` 为抓取失败标记
+
+## 监控时段（`push_schedule`）
+- `weekdays`：可推送的星期，`1`=周一 … `7`=周日
+- `time_ranges`：每天可推送时间段
+- `fetch_outside_push_schedule: true`（默认）：时段外仍抓取，仅暂停推送
+- `fetch_outside_push_schedule: false`：时段外抓取和推送都暂停
+- `--force` 忽略时段限制
+
+## 价格过滤
+- `min_push_price`：低于此价不监控（过滤 0.01 测试品）
+- `max_push_price`：全局上限；分类可设 `categories[].max_push_price`（如 Plus/Team 20，其他 12）
+
+## 告警触发（后台监听）
+**Top10 池内变动时推送**：
+1. **降价**：池内 SKU 价格低于上次记录（`prices.json`）
+2. **新进TopN**：新 SKU 进入某类 TopN 池（N=该分类 `top_n`，告警文案如「新进Top5」）
+3. `--force`：手动强制推送当前 Top10 全表
+
+增量推送（准优先）：
+1. 对告警涉及店铺，若 `alert_shop_fresh_seconds`（默认 180）内未刷新则重拉覆盖
+2. **只推该窗口内已验库存店铺的告警**；重拉后冒出的未验店铺告警压住，下一轮再验
+3. 验后缺货/出池导致告警消失则跳过推送
+
+不推送：SKU 移出池、店铺 SKU 变化、池外商品、首次建立基线（`top10.json` 为空时）
+
+## 进度持久化
+- `data/top10.json`：每轮保存各类 Top10 SKU 列表
+- `data/prices.json`：每轮保存全量商品价格，重启后用于降价对比
+
+## 发送去重
+- 已发送记录保存在 `data/sent.json`，以 `平台:token:goods_key` 为 SKU
+- 发送前过滤无效商品（缺名称/链接/SKU、价格异常、链接非法）
+- **发送前必须存在于本轮抓取的商品列表**（`new_state`），已下架/消失的 SKU 绝不推送
+- Top10 池加载时自动剔除不在当前商品列表中的陈旧 SKU
+- 若 SKU 已发送且价格与上次相同，则跳过不再推送
+- 发送成功后更新 `sent.json`；下架商品会从发送记录中清理
+
+## 店铺配置
+- `platform` 默认 `ldxp`，`catfk` 使用 catfk.com API
+- 店铺运行状态见 `data/shops_state.json`，键为 `平台:token`
+
+## 后台运行
+```bash
+python monitor.py              # 自动挂起后台（SKU变化 + Top10价格监控）
+python monitor.py --watch        # 前台持续监听
+python monitor.py --once         # 只跑一轮
+python monitor.py --force        # 强制推送当前 Top10
+```

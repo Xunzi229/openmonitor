@@ -1,0 +1,6 @@
+config.secrets.json
+data/watch.pid
+data/watch.meta.json
+__pycache__/
+*.pyc
+data
